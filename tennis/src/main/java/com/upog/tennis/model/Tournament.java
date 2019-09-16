@@ -19,13 +19,13 @@ public class Tournament {
 	int id;
 	 
 	@Column(name = "PRIZE_1ST")
-	int prize1st;
+	Integer prize1st;
 	@Column(name = "PRIZE_2ND")
-	int prize2nd;
+	Integer prize2nd;
 	@Column(name = "PRIZE_3RD")
-	int prize3rd;
+	Integer prize3rd;
 	@Column(name = "ENTREE_FEE")
-	int entreeFee;
+	Integer entreeFee;
 	
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "WINNER_ID", referencedColumnName = "PLAYER_ID")
@@ -54,42 +54,42 @@ public class Tournament {
 	}
 
 
-	public int getPrize1st() {
+	public Integer getPrize1st() {
 		return prize1st;
 	}
 
 
-	public void setPrize1st(int prize1st) {
+	public void setPrize1st(Integer prize1st) {
 		this.prize1st = prize1st;
 	}
 
 
-	public int getPrize2nd() {
+	public Integer getPrize2nd() {
 		return prize2nd;
 	}
 
 
-	public void setPrize2nd(int prize2nd) {
+	public void setPrize2nd(Integer prize2nd) {
 		this.prize2nd = prize2nd;
 	}
 
 
-	public int getPrize3rd() {
+	public Integer getPrize3rd() {
 		return prize3rd;
 	}
 
 
-	public void setPrize3rd(int prize3rd) {
+	public void setPrize3rd(Integer prize3rd) {
 		this.prize3rd = prize3rd;
 	}
 
 
-	public int getEntreeFee() {
+	public Integer getEntreeFee() {
 		return entreeFee;
 	}
 
 
-	public void setEntreeFee(int entreeFee) {
+	public void setEntreeFee(Integer entreeFee) {
 		this.entreeFee = entreeFee;
 	}
 
