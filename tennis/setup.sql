@@ -1,3 +1,4 @@
+test
 ssh -i Gopu23.pem ec2-user@52.91.246.69
 [ec2-user@ip-172-31-27-187 /]$ sudo -i
 [root@ip-172-31-27-187 ~]# yum install docker
