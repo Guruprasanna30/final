@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.activation.DataSource;
 
@@ -15,27 +16,28 @@ import org.springframework.stereotype.Component;
 import com.upog.tennis.dao.ReportsDaoImpl;
 import com.upog.tennis.exception.ResponeException;
 import com.upog.tennis.model.MatchDetails;
+import com.upog.tennis.model.Tournament;
+import com.upog.tennis.repository.TournamentRepository;
 import com.upog.tennis.util.Constant;
 import com.upog.tennis.util.Util; 
 
 @Component
-public class TennisService {
+public class TournamentService {
 	
-	
-
 	@Autowired
-	ReportsDaoImpl reportsDaoImpl;
-	
+	TournamentRepository tournamentRepository;
 
-	public List<List<Map<String,Object>>> getDynamicReport(String connectionName,String dynamicReportSQL) throws ResponeException{
+
+	public List<MatchDetails> generateTournamentSchedule(int tournamentId) throws ResponeException{
+		List<MatchDetails> tournamentSchedule =null;
 		try {
-		return reportsDaoImpl.getDynamicReport(connectionName,dynamicReportSQL);
-		}catch (Exception e) {
-			throw new ResponeException(e);
-		}
+			Optional<Tournament> tournament = tournamentRepository.findById(tournamentId);
+			System.out.println(tournament);
+			return tournamentSchedule;
+			}catch (Exception e) {
+				throw new ResponeException(e);
+			}
 	}
-	
-
 	
 	
 }

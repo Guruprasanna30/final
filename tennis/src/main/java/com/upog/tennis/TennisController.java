@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.upog.tennis.service.TennisInitService;
 import com.upog.tennis.service.TennisService;
+import com.upog.tennis.service.TournamentService;
 import com.upog.tennis.util.Constant;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -29,6 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.upog.tennis.exception.CustomResponseEntityExceptionHandler;
 import com.upog.tennis.exception.ResponeException;
 import com.upog.tennis.model.Connection;
+import com.upog.tennis.model.MatchDetails;
 
 
 /**
@@ -41,6 +43,9 @@ public class TennisController  {
 	
 	@Autowired
 	private TennisService tennisService;
+	
+	@Autowired
+	private TournamentService tournamentService;
 	
 	@Autowired  
 	private TennisInitService tennisInitService;
@@ -70,6 +75,14 @@ public class TennisController  {
 	@ResponseBody
 	public List<Connection> getConnectionList() {
 		 return tennisInitService.getConnectionList();
+	 
+	}
+	
+	@RequestMapping(method=RequestMethod.GET, path="/generateTournamentSchedule") 
+	@ResponseBody
+	public List<MatchDetails> generateTournamentSchedule(@RequestParam Map<String,String> requestParams) throws ResponeException {
+		int  tournamentId=Integer.parseInt(requestParams.get("tournamentId"));
+		return tournamentService.generateTournamentSchedule(tournamentId);
 	 
 	}
 	
