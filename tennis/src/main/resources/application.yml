@@ -27,8 +27,8 @@ spring:
 
 #Need to be checked  
 server:  
- servlet:
-  context-path: /tennis    
+ #servlet:
+  #context-path: /tennis    
 ---
 spring:
  profiles: dev
