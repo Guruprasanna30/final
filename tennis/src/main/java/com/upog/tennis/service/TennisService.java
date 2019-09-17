@@ -30,6 +30,7 @@ public class TennisService {
 	public List<List<Map<String,Object>>> getDynamicReport(String connectionName,String dynamicReportSQL) throws ResponeException{
 		try {
 		return reportsDaoImpl.getDynamicReport(connectionName,dynamicReportSQL);
+		
 		}catch (Exception e) {
 			throw new ResponeException(e);
 		}

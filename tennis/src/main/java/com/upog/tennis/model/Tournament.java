@@ -27,6 +27,18 @@ public class Tournament {
 	@Column(name = "ENTREE_FEE")
 	Integer entreeFee;
 	
+	@Column(name = "MATCH_INTERVAL_DAYS")
+	Integer matchInterval;
+	@Column(name = "START_DATE")
+	Date stratDate;
+	@Column(name = "END_DATE")
+	Date endDate;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "GAME_TYPE_ID", referencedColumnName = "GAME_TYPE_ID")
+    private GameType gameType;
+
+	  
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "WINNER_ID", referencedColumnName = "PLAYER_ID")
     private Player winnerPlayer;
@@ -94,6 +106,46 @@ public class Tournament {
 	}
 
 
+	public Integer getMatchInterval() {
+		return matchInterval;
+	}
+
+
+	public void setMatchInterval(Integer matchInterval) {
+		this.matchInterval = matchInterval;
+	}
+
+
+	public Date getStratDate() {
+		return stratDate;
+	}
+
+
+	public void setStratDate(Date stratDate) {
+		this.stratDate = stratDate;
+	}
+
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+
+	public GameType getGameType() {
+		return gameType;
+	}
+
+
+	public void setGameType(GameType gameType) {
+		this.gameType = gameType;
+	}
+
+
 	public Player getWinnerPlayer() {
 		return winnerPlayer;
 	}
@@ -127,10 +179,11 @@ public class Tournament {
 	@Override
 	public String toString() {
 		return "Tournament [id=" + id + ", prize1st=" + prize1st + ", prize2nd=" + prize2nd + ", prize3rd=" + prize3rd
-				+ ", entreeFee=" + entreeFee + ", winnerPlayer=" + winnerPlayer + ", runnerPlayer=" + runnerPlayer
-				+ ", scheduleLogic=" + scheduleLogic + "]";
+				+ ", entreeFee=" + entreeFee + ", matchInterval=" + matchInterval + ", stratDate=" + stratDate
+				+ ", endDate=" + endDate + ", gameType=" + gameType + ", winnerPlayer=" + winnerPlayer
+				+ ", runnerPlayer=" + runnerPlayer + ", scheduleLogic=" + scheduleLogic + "]";
 	}
 
-	
+    
 	
 }
