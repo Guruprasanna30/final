@@ -17,8 +17,8 @@ export  class Constant{
     public DEFAULT_DATABASEs:string="DBTENNIS"; 
 
     public  URL_ADD_REPORT:string="https://ng-complete-guide-c56d3.firebaseio.com/posts.json"; 
-    public  URL_BASE:string= this.SERVER_PROTOCOL+"://"+this.SERVER_IP+":"+this.SERVER_PORT+"/"+  this.APP_CONTEXT+"/";
-    //public  URL_BASE:string= "/"+  this.APP_CONTEXT+"/"; 
+    //public  URL_BASE:string= this.SERVER_PROTOCOL+"://"+this.SERVER_IP+":"+this.SERVER_PORT+"/"+  this.APP_CONTEXT+"/";
+    public  URL_BASE:string= "/"; 
     public  URL_GET_MESSAGE:string= this.URL_BASE +"message"; 
     public  URL_GET_REPROT_LIST:string=this.URL_BASE +"reportList";
     public  URL_GET_DYNAMIC_REPORT:string=this.URL_BASE+"dynamicReport";
