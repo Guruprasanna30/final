@@ -45,25 +45,25 @@ public class Player {
 	String description;
 	
 	@Column(name = "LEVEL")
-	float level;
+	Float level;
 	@Column(name = "TOURNAMENT_WON")
-	int tournamentWon;
+	Integer tournamentWon;
 	@Column(name = "REG_MATCH_PLAYED")
-	int noOfRegularMatch;
+	Integer noOfRegularMatch;
 	@Column(name = "REG_MATCH_WON")
-	int noOfRegularMatchWon;
+	Integer noOfRegularMatchWon;
 	@Column(name = "REG_MATCH_DRAWN")
-	int noOfRegularMatchDrawn;
+	Integer noOfRegularMatchDrawn;
 	@Column(name = "TOURNAMENT_MATCH_PLAYED")
-	int noOfTournamentMatch;
+	Integer noOfTournamentMatch;
 	@Column(name = "TOURNAMENT_MATCH_WON")
-	int noOfTournamentMatchWon;
+	Integer noOfTournamentMatchWon;
 	@Column(name = "TOURNAMENT_MATCH_DRAWN")
-	int noOfTournamentMatchDrawn;
+	Integer noOfTournamentMatchDrawn;
 	@Column(name = "RAITNG")
-	float rating;
+	Integer rating;
 	@Column(name = "TOURNAMENT_RAITNG")
-	float tournamentRating;
+	Integer tournamentRating;
 
 
 	@OneToOne(cascade = CascadeType.ALL)
@@ -76,9 +76,9 @@ public class Player {
 	
 	//@OneToMany ( mappedby = "media.strObjectGUID"    )
 	
-	@OneToMany
-	@Formula("SELECT * FROM MEDIA WHERE MEDIA_ID = MEDIA_ID")
-	private List<Media> media= new ArrayList<Media>();
+	@OneToOne
+	@JoinColumn(name = "MEDIA_ID", referencedColumnName = "MEDIA_ID")
+    private Media media;
 	
 	
 	public Player() {}
@@ -164,102 +164,102 @@ public class Player {
 	}
 
 
-	public float getLevel() {
+	public Float getLevel() {
 		return level;
 	}
 
 
-	public void setLevel(float level) {
+	public void setLevel(Float level) {
 		this.level = level;
 	}
 
 
-	public int getTournamentWon() {
+	public Integer getTournamentWon() {
 		return tournamentWon;
 	}
 
 
-	public void setTournamentWon(int tournamentWon) {
+	public void setTournamentWon(Integer tournamentWon) {
 		this.tournamentWon = tournamentWon;
 	}
 
 
-	public int getNoOfRegularMatch() {
+	public Integer getNoOfRegularMatch() {
 		return noOfRegularMatch;
 	}
 
 
-	public void setNoOfRegularMatch(int noOfRegularMatch) {
+	public void setNoOfRegularMatch(Integer noOfRegularMatch) {
 		this.noOfRegularMatch = noOfRegularMatch;
 	}
 
 
-	public int getNoOfRegularMatchWon() {
+	public Integer getNoOfRegularMatchWon() {
 		return noOfRegularMatchWon;
 	}
 
 
-	public void setNoOfRegularMatchWon(int noOfRegularMatchWon) {
+	public void setNoOfRegularMatchWon(Integer noOfRegularMatchWon) {
 		this.noOfRegularMatchWon = noOfRegularMatchWon;
 	}
 
 
-	public int getNoOfRegularMatchDrawn() {
+	public Integer getNoOfRegularMatchDrawn() {
 		return noOfRegularMatchDrawn;
 	}
 
 
-	public void setNoOfRegularMatchDrawn(int noOfRegularMatchDrawn) {
+	public void setNoOfRegularMatchDrawn(Integer noOfRegularMatchDrawn) {
 		this.noOfRegularMatchDrawn = noOfRegularMatchDrawn;
 	}
 
 
-	public int getNoOfTournamentMatch() {
+	public Integer getNoOfTournamentMatch() {
 		return noOfTournamentMatch;
 	}
 
 
-	public void setNoOfTournamentMatch(int noOfTournamentMatch) {
+	public void setNoOfTournamentMatch(Integer noOfTournamentMatch) {
 		this.noOfTournamentMatch = noOfTournamentMatch;
 	}
 
 
-	public int getNoOfTournamentMatchWon() {
+	public Integer getNoOfTournamentMatchWon() {
 		return noOfTournamentMatchWon;
 	}
 
 
-	public void setNoOfTournamentMatchWon(int noOfTournamentMatchWon) {
+	public void setNoOfTournamentMatchWon(Integer noOfTournamentMatchWon) {
 		this.noOfTournamentMatchWon = noOfTournamentMatchWon;
 	}
 
 
-	public int getNoOfTournamentMatchDrawn() {
+	public Integer getNoOfTournamentMatchDrawn() {
 		return noOfTournamentMatchDrawn;
 	}
 
 
-	public void setNoOfTournamentMatchDrawn(int noOfTournamentMatchDrawn) {
+	public void setNoOfTournamentMatchDrawn(Integer noOfTournamentMatchDrawn) {
 		this.noOfTournamentMatchDrawn = noOfTournamentMatchDrawn;
 	}
 
 
-	public float getRating() {
+	public Integer getRating() {
 		return rating;
 	}
 
 
-	public void setRating(float rating) {
+	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
 
 
-	public float getTournamentRating() {
+	public Integer getTournamentRating() {
 		return tournamentRating;
 	}
 
 
-	public void setTournamentRating(float tournamentRating) {
+	public void setTournamentRating(Integer tournamentRating) {
 		this.tournamentRating = tournamentRating;
 	}
 
@@ -284,12 +284,12 @@ public class Player {
 	}
 
 
-	public List<Media> getMedia() {
+	public Media getMedia() {
 		return media;
 	}
 
 
-	public void setMedia(List<Media> media) {
+	public void setMedia(Media media) {
 		this.media = media;
 	}
 

@@ -24,30 +24,18 @@ public class DynamicReportRepository {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	@Autowired
-	private DataSourceFactory dataSourceFactory;
 /*	@Autowired
-	private JdbcTemplate dataSource1JdbcTemplate;
-	
-	@Autowired
-	private JdbcTemplate dataSource2JdbcTemplate;
+	private DataSourceFactory dataSourceFactory;
 	*/
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
 	
 	public List<List<Map<String,Object>>> getDynamicReport(String connectionName,String dynamicReportSQL){
 		
 		System.out.println(Constant.SB_JDBC_TEMPLATE+connectionName); 
-		 JdbcTemplate jdbcTemplate=dataSourceFactory.getJdbcTemplatebyName(connectionName) ;
-		
-	/*	 System.out.println("connectionName" + connectionName);
-		 if ("CITISEARCH".equals(connectionName)) {
-			 jdbcTemplate=dataSource2JdbcTemplate;
-			 System.out.println("The JDBC template is dataSource2JdbcTemplate");
-		 }
-		 else {
-			 jdbcTemplate=dataSource1JdbcTemplate;
-			 System.out.println("The JDBC template is dataSource1JdbcTemplate");
-		 }
-		 */
+		// JdbcTemplate jdbcTemplate=dataSourceFactory.getJdbcTemplatebyName(connectionName) ;
+
 		List<List<Map<String,Object>>> result=new ArrayList<List<Map<String,Object>>>();
 		List<Map<String, Object>> resultData=null;
 		List<Map<String, Object>> resultHeader=null;

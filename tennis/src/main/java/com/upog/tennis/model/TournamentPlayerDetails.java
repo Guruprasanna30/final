@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,20 +20,20 @@ public class TournamentPlayerDetails {
 	int id;
 
 	@Column(name = "RANKING")
-	int ranking;
+	Integer ranking;
 	 
 	@Column(name = "MATCH_WON")
-	int matchWon;
+	Integer matchWon;
 	@Column(name = "MATCH_LOST")
-	int matchLost;
+	Integer matchLost;
 	@Column(name = "SET_WON")
-	int setWon;
+	Integer setWon;
 	@Column(name = "SET_LOST")
-	int setLost;
+	Integer setLost;
 	@Column(name = "GAME_WON")
-	int gameWon;
+	Integer gameWon;
 	@Column(name = "GAME_LOST")
-	int gameLost;
+	Integer gameLost;
 	
 	
 
@@ -40,6 +41,9 @@ public class TournamentPlayerDetails {
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PLAYER_ID", referencedColumnName = "PLAYER_ID")
     private Player player;
+	@ManyToOne(cascade = CascadeType.ALL) 
+    @JoinColumn(name = "TOURNAMENT_ID", referencedColumnName = "TOURNAMENT_ID")
+    private Tournament tournament;
 	
 	public TournamentPlayerDetails() {}
 
@@ -52,59 +56,59 @@ public class TournamentPlayerDetails {
 	}
 
 
-	public int getRanking() {
+	public Integer getRanking() {
 		return ranking;
 	}
 
-	public void setRanking(int ranking) {
+	public void setRanking(Integer ranking) {
 		this.ranking = ranking;
 	}
 
-	public int getMatchWon() {
+	public Integer getMatchWon() {
 		return matchWon;
 	}
 
-	public void setMatchWon(int matchWon) {
+	public void setMatchWon(Integer matchWon) {
 		this.matchWon = matchWon;
 	}
 
-	public int getMatchLost() {
+	public Integer getMatchLost() {
 		return matchLost;
 	}
 
-	public void setMatchLost(int matchLost) {
+	public void setMatchLost(Integer matchLost) {
 		this.matchLost = matchLost;
 	}
 
-	public int getSetWon() {
+	public Integer getSetWon() {
 		return setWon;
 	}
 
-	public void setSetWon(int setWon) {
+	public void setSetWon(Integer setWon) {
 		this.setWon = setWon;
 	}
 
-	public int getSetLost() {
+	public Integer getSetLost() {
 		return setLost;
 	}
 
-	public void setSetLost(int setLost) {
+	public void setSetLost(Integer setLost) {
 		this.setLost = setLost;
 	}
 
-	public int getGameWon() {
+	public Integer getGameWon() {
 		return gameWon;
 	}
 
-	public void setGameWon(int gameWon) {
+	public void setGameWon(Integer gameWon) {
 		this.gameWon = gameWon;
 	}
 
-	public int getGameLost() {
+	public Integer getGameLost() {
 		return gameLost;
 	}
 
-	public void setGameLost(int gameLost) {
+	public void setGameLost(Integer gameLost) {
 		this.gameLost = gameLost;
 	}
 

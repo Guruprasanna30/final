@@ -18,6 +18,17 @@ public class GameType {
 	String displayName;
 	
 	public GameType() {}
+	
+	
+
+	public GameType(int id, String name, String displayName) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.displayName = displayName;
+	}
+
+
 
 	public int getId() {
 		return id;

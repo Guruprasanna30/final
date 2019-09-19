@@ -81,7 +81,7 @@ public class TennisController  {
 	@RequestMapping(method=RequestMethod.GET, path="/generateTournamentSchedule") 
 	@ResponseBody
 	public List<MatchDetails> generateTournamentSchedule(@RequestParam Map<String,String> requestParams) throws ResponeException {
-		int  tournamentId=Integer.parseInt(requestParams.get("tournamentId"));
+		int  tournamentId=1;//Integer.parseInt(requestParams.get("tournamentId"));
 		return tournamentService.generateTournamentSchedule(tournamentId);
 	 
 	}

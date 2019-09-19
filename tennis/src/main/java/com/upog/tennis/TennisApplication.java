@@ -22,7 +22,7 @@ public class TennisApplication {
 	@Bean
 	InitializingBean intitialize() {
 	    return () -> {
-	    	tennisInitService.initConnections();
+	    	//tennisInitService.initConnections();
 	      };
 	   } 
 

@@ -17,6 +17,10 @@ public class Tournament {
 	@Id 
 	@Column(name = "TOURNAMENT_ID")
 	int id;
+	
+
+	@Column(name = "TOURNAMENT_NAME")
+	String name;
 	 
 	@Column(name = "PRIZE_1ST")
 	Integer prize1st;
@@ -63,6 +67,16 @@ public class Tournament {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 
@@ -178,11 +192,14 @@ public class Tournament {
 
 	@Override
 	public String toString() {
-		return "Tournament [id=" + id + ", prize1st=" + prize1st + ", prize2nd=" + prize2nd + ", prize3rd=" + prize3rd
-				+ ", entreeFee=" + entreeFee + ", matchInterval=" + matchInterval + ", stratDate=" + stratDate
-				+ ", endDate=" + endDate + ", gameType=" + gameType + ", winnerPlayer=" + winnerPlayer
-				+ ", runnerPlayer=" + runnerPlayer + ", scheduleLogic=" + scheduleLogic + "]";
+		return "Tournament [id=" + id + ", name=" + name + ", prize1st=" + prize1st + ", prize2nd=" + prize2nd
+				+ ", prize3rd=" + prize3rd + ", entreeFee=" + entreeFee + ", matchInterval=" + matchInterval
+				+ ", stratDate=" + stratDate + ", endDate=" + endDate + ", gameType=" + gameType + ", winnerPlayer="
+				+ winnerPlayer + ", runnerPlayer=" + runnerPlayer + ", scheduleLogic=" + scheduleLogic + "]";
 	}
+
+
+	
 
     
 	

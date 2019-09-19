@@ -98,6 +98,30 @@ public class MatchDetails {
 	
 	public MatchDetails() {}
 
+	
+	
+	public MatchDetails(int id, String name, Date fromDate, Date toDate, Date createdTime, Player player1,
+			Player player2, Player player3, Player player4, MatchType matchType, GameType gameType,
+			Tournament tournament) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.fromDate = fromDate;
+		this.toDate = toDate;
+		this.createdTime = createdTime;
+		this.player1 = player1;
+		this.player2 = player2;
+		this.player3 = player3;
+		this.player4 = player4;
+		this.matchType = matchType;
+		this.gameType = gameType;
+		this.tournament = tournament;
+	}
+	
+
+
+
+
 	public int getId() {
 		return id;
 	}

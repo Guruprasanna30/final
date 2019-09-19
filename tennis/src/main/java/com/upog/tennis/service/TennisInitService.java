@@ -17,9 +17,15 @@ public class TennisInitService {
 
 	@Autowired
 	ConnectionDaoImpl connectionDaoImpl;	
-	@Autowired
+	/*@Autowired
 	DataSourceFactory dataSourceFactory;
 	
+	public boolean initConnections(){
+	boolean result = false;
+	dataSourceFactory.loadConnection();
+	return result;
+} 
+	*/
 
 	
 public List<Connection> getConnectionList(){				
@@ -27,11 +33,7 @@ public List<Connection> getConnectionList(){
 	} 
 
 
-public boolean initConnections(){
-	boolean result = false;
-	dataSourceFactory.loadConnection();
-	return result;
-} 
+
 	
 	
 	

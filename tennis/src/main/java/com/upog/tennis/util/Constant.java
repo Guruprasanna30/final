@@ -41,4 +41,16 @@ public abstract class Constant {
 	public static final String SB_DATA_SOURCE="dataSource";
 	public static final String SB_JDBC_TEMPLATE="jdbcTemplate";
 	
+	//GAME_TYPE
+	public static final String GAME_TYPE_SINGLES="SINGLES";
+	public static final String GAME_TYPE_DOUBLES="DOUBLES";
+	public static final String GAME_TYPE_MIXED_DOUBLES="MIXED_DOUBLES";
+	public static final String GAME_TYPE_MIXED_SINGLES="MIXED_SINGLES"; 
+	
+	//SCHEDULE_LOGIC
+	public static final String SCHEDULE_LOGIC_ROUND_ROBIN="ROUND_ROBIN";
+	
+	
+	
+	
 }

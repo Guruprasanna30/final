@@ -1,13 +1,20 @@
 package com.upog.tennis.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "COURT_TYPE")
-public class Media {
+@Table(name = "MEDIA")
+public class Media implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id 
 	@Column(name = "MEDIA_INTERNAL_ID")

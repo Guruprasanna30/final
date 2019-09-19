@@ -18,6 +18,17 @@ public class MatchType {
 	String displayName;
 	
 	public MatchType() {}
+	
+	
+
+	public MatchType(int id, String name, String displayName) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.displayName = displayName;
+	}
+
+
 
 	public int getId() {
 		return id;
