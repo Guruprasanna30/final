@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 @Injectable() // Does it REquired 
 export class AppData{
     public name:String;
+    public loadedFeature:String;
     public description:String;
     public dynamicReportResult:any;
     public dynamicReportHeader:any;

@@ -14,18 +14,7 @@ export class AppComponent {
   appData:AppData=AppData.Instance;
   constant:Constant=Constant.Instance;
 
-  title = this.constant.APPLICATION_TITLE;
 
-  loadedFeature=this.constant.VIEW_REPORT;
 
-  onNavigate(feature:string){
-    console.log(this.loadedFeature);
-    this.loadedFeature=feature; 
-  }
 
-  private _opened: boolean = false;
- 
-  private _toggleSidebar() {
-    this._opened = !this._opened;
-  }
 }

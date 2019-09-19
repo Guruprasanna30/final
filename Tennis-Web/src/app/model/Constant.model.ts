@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()  
 export  class Constant{
 
-    public  APPLICATION_TITLE:string="Reports";
+    public  APPLICATION_TITLE:string="Play My Tennis";
     public  VIEW_REPORT:string="viewReport";
     public  CREATE_REPORT:string="createReport";
     public  DYNAMIC_REPORT:string="DynamicReport";
