@@ -25,10 +25,8 @@ import { QueryBuilderModule } from "angular2-query-builder";
 import { sqlBuilderComponenet } from './CompSqlBuilder/sqlBuilder.component';
 import { AlertCompoenent } from './CompShared/CompAlert/alert.componenet';
 import { ReportNameFilter } from './pipe/ReportNameFilter.pipe';
-import { CustomSideBar } from './CompShared/CompCustomSideBar/CustomSideBar.coponenet';
-
-
-
+import { CustomSideBarComponenet } from './CompCustomSideBar/CustomSideBar.component';
+import { MainPageComponenet } from './CompMainPage/MainPage.component';
 
 
 @NgModule({ 
@@ -40,8 +38,10 @@ import { CustomSideBar } from './CompShared/CompCustomSideBar/CustomSideBar.copo
     ,dynamicReportComponenet
     ,sqlBuilderComponenet
     ,AlertCompoenent
-    ,CustomSideBar
+    ,CustomSideBarComponenet
     ,ReportNameFilter
+    ,MainPageComponenet
+    
 
   ],
   imports: [
@@ -51,7 +51,7 @@ import { CustomSideBar } from './CompShared/CompCustomSideBar/CustomSideBar.copo
     FormsModule,
     NgbTypeaheadModule,
     QueryBuilderModule,
-    SidebarModule.forRoot(),
+    SidebarModule,
     AgGridModule.withComponents([])
     
   ],
