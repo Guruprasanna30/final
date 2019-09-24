@@ -1,11 +1,13 @@
 package com.upog.tennis.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -21,8 +23,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "PLAYER")
-public class Player {
+public class Player implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id 
 	@Column(name = "PLAYER_ID")
 	int id;
@@ -66,17 +72,17 @@ public class Player {
 	Integer tournamentRating;
 
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL )
     @JoinColumn(name = "ADDRESS_ID", referencedColumnName = "ADDRESS_ID")
     private Address address;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL )
     @JoinColumn(name = "SEX_NAME", referencedColumnName = "SEX_NAME")
     private Sex sex;
 	
 	//@OneToMany ( mappedby = "media.strObjectGUID"    )
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MEDIA_ID", referencedColumnName = "MEDIA_ID")
     private Media media;
 	

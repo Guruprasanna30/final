@@ -19,5 +19,9 @@ export class headerComponenet{
 
     }
 
+    share(){
+        
+    }
+
 
 }

@@ -27,9 +27,9 @@ public class TennisService {
 	ReportsDaoImpl reportsDaoImpl;
 	
 
-	public List<List<Map<String,Object>>> getDynamicReport(String connectionName,String dynamicReportSQL) throws ResponeException{
+	public List<List<Map<String,Object>>> getDynamicReport(String dynamicReportSQL) throws ResponeException{
 		try {
-		return reportsDaoImpl.getDynamicReport(connectionName,dynamicReportSQL);
+		return reportsDaoImpl.getDynamicReport(dynamicReportSQL);
 		
 		}catch (Exception e) {
 			throw new ResponeException(e);

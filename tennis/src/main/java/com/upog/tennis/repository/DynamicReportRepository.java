@@ -31,9 +31,9 @@ public class DynamicReportRepository {
 	private JdbcTemplate jdbcTemplate;
 
 	
-	public List<List<Map<String,Object>>> getDynamicReport(String connectionName,String dynamicReportSQL){
+	public List<List<Map<String,Object>>> getDynamicReport(String dynamicReportSQL){
 		
-		System.out.println(Constant.SB_JDBC_TEMPLATE+connectionName); 
+
 		// JdbcTemplate jdbcTemplate=dataSourceFactory.getJdbcTemplatebyName(connectionName) ;
 
 		List<List<Map<String,Object>>> result=new ArrayList<List<Map<String,Object>>>();
@@ -64,6 +64,8 @@ public class DynamicReportRepository {
 			   column.put(Constant.GRID_JSON_HEADER_FIELD,columnHeader);
 			   column.put(Constant.GRID_JSON_HEADER_SORT,Constant.TRUE_BOOLEAN);
 			   column.put(Constant.GRID_JSON_HEADER_FILTER,Constant.TRUE_BOOLEAN);
+			   column.put(Constant.GRID_JSON_HEADER_PINNED,null);
+			   
 			   result.add(column);
 			}
 		System.out.println("Header --> " + result);

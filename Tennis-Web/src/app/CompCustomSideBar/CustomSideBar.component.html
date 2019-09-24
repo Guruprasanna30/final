@@ -34,12 +34,12 @@
 <p>Steal the warm chair right after you get up.</p> 
 </ng-sidebar>
 
-<div ng-sidebar-content> 
-<header class="demo-header" >
+<div ng-sidebar-content style = "height:100%"> 
+<header class="demo-header" style = "height:10%" >
   <button (click)="_toggleOpened()" class="demo-header__toggle">Toggle sidebar</button>
- <span> <headerSel (featureSelected)="onNavigate($event)"> </headerSel> </span>
+  <headerSel (featureSelected)="onNavigate($event)" style = "width:100%"> </headerSel>
 </header>
-<MainPageSel></MainPageSel> 
+<MainPageSel style = "height:90%"></MainPageSel> 
  
 </div>
 </ng-sidebar-container>

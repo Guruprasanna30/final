@@ -1,5 +1,6 @@
 package com.upog.tennis.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -9,15 +10,22 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Formula;
+import org.springframework.data.annotation.Transient;
 
 @Entity
 @Table(name = "MATCH_DETAILS")
-public class MatchDetails {
+public class MatchDetails implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id 
 	@Column(name = "MATCH_ID")
@@ -29,60 +37,74 @@ public class MatchDetails {
 	@Column(name = "MATCH_NAME")
 	String name;
 	
-	@Column(name = "FROM_DATE")
-	Date fromDate;
+	@Column(name = "START_DATE") 
+	Date startDate;
 	
-	@Column(name = "TO_DATE")
-	Date toDate;
+	@Column(name = "END_DATE")
+	Date endDate;
 	
 	@Column(name = "PLAYED_TIME")
 	Date playedTime;
 	
 	@Column(name = "CREATED_TIME")
 	Date createdTime;
+
 	
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "PLAYER_ID_1", referencedColumnName = "PLAYER_ID")
     private Player player1;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "PLAYER_ID_2", referencedColumnName = "PLAYER_ID")
     private Player player2;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "PLAYER_ID_3", referencedColumnName = "PLAYER_ID")
     private Player player3;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "PLAYER_ID_4", referencedColumnName = "PLAYER_ID")
     private Player player4;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "MATCH_TYPE_ID", referencedColumnName = "MATCH_TYPE_ID")
     private MatchType matchType;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "GAME_TYPE_ID", referencedColumnName = "GAME_TYPE_ID")
     private GameType gameType;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "RESULT_TYPE_ID", referencedColumnName = "RESULT_TYPE_ID")
     private ResultType resultType;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	/*@OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "TOURNAMENT_ID", referencedColumnName = "TOURNAMENT_ID")
-    private Tournament tournament;
+    private Tournament tournament;*/
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
+	@JoinColumns(
+		    {
+		    	@JoinColumn(name = "TOURNAMENT_ID", referencedColumnName = "TOURNAMENT_ID"),
+		    	@JoinColumn(name = "DIVISION", referencedColumnName = "DIVISION") 
+		    })
+	private Tournament tournament;
+	
+	
+	@OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "SCORE_ID", referencedColumnName = "SCORE_ID")
     private Score score;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	
+	@OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "COURT_ID", referencedColumnName = "COURT_ID")
     private Court court;
 	
-	@OneToMany
-	//@JoinColumn( name = "MEDIA_ID", referencedColumnName = "MEDIA_ID"    )
-	@Formula("SELECT * FROM MEDIA WHERE MEDIA_ID = MEDIA_ID")
-	private List<Media> media= new ArrayList<Media>();
+/*	@OneToMany
+	 @JoinColumn(name = "MEDIA_ID", referencedColumnName = "MEDIA_ID")
+	private List<Media> media;*/
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "MEDIA_ID", referencedColumnName = "MEDIA_ID")
+    private Media media;
 	
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "SCHEDULE_ID_1", referencedColumnName = "SCHEDULE_ID")
@@ -106,8 +128,8 @@ public class MatchDetails {
 		super();
 		this.id = id;
 		this.name = name;
-		this.fromDate = fromDate;
-		this.toDate = toDate;
+		this.startDate = fromDate;
+		this.endDate = toDate;
 		this.createdTime = createdTime;
 		this.player1 = player1;
 		this.player2 = player2;
@@ -146,20 +168,20 @@ public class MatchDetails {
 		this.name = name;
 	}
 
-	public Date getFromDate() {
-		return fromDate;
+	public Date getStartDate() {
+		return startDate;
 	}
 
-	public void setFromDate(Date fromDate) {
-		this.fromDate = fromDate;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
-	public Date getToDate() {
-		return toDate;
+	public Date getEndDate() {
+		return endDate;
 	}
 
-	public void setToDate(Date toDate) {
-		this.toDate = toDate;
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 
 	public Date getPlayedTime() {
@@ -177,6 +199,10 @@ public class MatchDetails {
 	public void setCreatedTime(Date createdTime) {
 		this.createdTime = createdTime;
 	}
+
+
+
+
 
 	public Player getPlayer1() {
 		return player1;
@@ -258,12 +284,12 @@ public class MatchDetails {
 		this.court = court;
 	}
 
-	public List<Media> getMedia() {
+	public Media getMedia() {
 		return media;
 	}
 
 
-	public void setMedia(List<Media> media) {
+	public void setMedia(Media media) {
 		this.media = media;
 	}
 
@@ -293,13 +319,13 @@ public class MatchDetails {
 
 	@Override
 	public String toString() {
-		return "MatchDetails [id=" + id + ", comment=" + comment + ", name=" + name + ", fromDate=" + fromDate
-				+ ", toDate=" + toDate + ", playedTime=" + playedTime + ", createdTime=" + createdTime + ", player1="
+		return "MatchDetails [id=" + id + ", comment=" + comment + ", name=" + name + ", startDate=" + startDate
+				+ ", endDate=" + endDate + ", playedTime=" + playedTime + ", createdTime=" + createdTime + ", player1="
 				+ player1 + ", player2=" + player2 + ", player3=" + player3 + ", player4=" + player4 + ", matchType="
 				+ matchType + ", gameType=" + gameType + ", resultType=" + resultType + ", tournament=" + tournament
 				+ ", score=" + score + ", court=" + court + ", media=" + media + ", schedule1=" + schedule1
 				+ ", schedule2=" + schedule2 + ", schedule3=" + schedule3 + "]";
-	}
+	} 
 
 		
 	

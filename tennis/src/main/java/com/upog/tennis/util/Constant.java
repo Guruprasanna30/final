@@ -12,6 +12,7 @@ public abstract class Constant {
 	
 	public static final String N_A="N/A";
 	public static final String UNDER_SCORE="_";
+	public static final String HYPHEN="-";
 	public static final String SPACE=" ";
 	public static final String COMMA=",";
 	
@@ -25,6 +26,7 @@ public abstract class Constant {
 	public static final String GRID_JSON_HEADER_FIELD="field";
 	public static final String GRID_JSON_HEADER_SORT="sortable";
 	public static final String GRID_JSON_HEADER_FILTER="filter";
+	public static final String GRID_JSON_HEADER_PINNED="pinned";
 	
 	//SQL KEY WORDS
 	
@@ -49,6 +51,8 @@ public abstract class Constant {
 	
 	//SCHEDULE_LOGIC
 	public static final String SCHEDULE_LOGIC_ROUND_ROBIN="ROUND_ROBIN";
+	public static final String ROUND="Round";
+	public static final String MATCH="Match";
 	
 	
 	

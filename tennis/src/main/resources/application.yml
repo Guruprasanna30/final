@@ -1,6 +1,6 @@
 logging:
   level:
-    org.springframework: DEBUG
+    org.springframework: WARN
     com.upog: DEBUG
   pattern:
     console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
@@ -20,6 +20,9 @@ spring:
   #properties:
    #hibernate:
     #dialect: org.hibernate.dialect.MySQL8Dialect
+ jackson:
+  serialization:
+   fail-on-empty-beans: false
   
 # ===============================
 # = Hibernate datasource

@@ -21,11 +21,11 @@ export class MainPageComponenet implements OnInit{
 
     title = this.constant.APPLICATION_TITLE;
 
-    loadedFeature=this.constant.VIEW_REPORT;
+    loadedFeature=this.constant.VIEW_MATCH;
   
     onNavigate(feature:string){
       console.log(this.loadedFeature);
-      this.loadedFeature=feature; 
+      this.appData.loadedFeature=feature; 
     }
      
     constructor(private appDataService:AppDataService , private  loggingService:LoggingService){
@@ -34,32 +34,14 @@ export class MainPageComponenet implements OnInit{
     }
 
     ngOnInit(){
-        this.loggingService.log(this.appData.reportlist);
-        this.loggingService.log(this.appDataService.getReportName);
-        
-        console.log(this.appData.reportlist);
+        this.loggingService.log("Inside Main page on Init");
+        this.appData.loadedFeature=this.constant.VIEW_HOME;
+
      }
 
-     onAddReport() {    
-        var reportName = this.nameInputRef.nativeElement.value;
-        this.appDataService.addReportName(reportName);
-        this.loggingService.log("inside createReport" + this.appData.reportlist);      
-      }
-      onDeleteReport(){
-        //this.appDataService.addReport({"name":"Report1", "sql":"test"});
-      }
 
-      onGetMessage(){
-        this.appDataService.getmessage().subscribe(responseData=>{
-          console.log("The report data is",responseData);          
-      },error =>{
-        this.errorObj=error;
-       // this.errorObj={"message":  error.error.message,"status":  error.status,"statusText":  error.statusText,"serviceUrl":  error.url}
-            this.loggingService.log( this.errorObj.error.message); 
-           
-             
-      });;
-      }
+
+
 
       onHandleError() {
         this.errorObj = null;

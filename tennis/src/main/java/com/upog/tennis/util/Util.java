@@ -53,12 +53,14 @@ public abstract class Util {
        MatchType matchType= new MatchType(2, "TOURNAMENT_LEAGUE", "Tournament League");
        
        GameType gameType= new GameType(1,"SINGLES","Singles");
+       String  name= tournament.getName();
+       float division= tournament.getDivision();
 	   
 	  tournamentPlayer.sort((o1, o2) -> o1.getFirstName().compareTo(o2.getFirstName())); 
       if( Constant.GAME_TYPE_SINGLES.equals(tournament.getGameType().getName()) 
     		 || Constant.GAME_TYPE_MIXED_SINGLES.equals(tournament.getGameType().getName())) {    	 
     	 if(Constant.SCHEDULE_LOGIC_ROUND_ROBIN.equals(tournament.getScheduleLogic().getName()) ) {
-    		 for(int i=0; i < tournamentPlayer.size(); i++) {
+    		 for(int i=0; i < tournamentPlayer.size()-1; i++) {
     			 
     			 
     			  long ltime=startDate.getTime()+7*24*60*60*1000;
@@ -68,9 +70,9 @@ public abstract class Util {
     			   for(int j=0;j<halfSize;j++) {
     				   logger.debug(tournamentPlayer.get(j).getFirstName() + " vs " + tournamentPlayer.get(size-1-j).getFirstName());
     			
-    				   MatchDetails match=	new MatchDetails(matchStart,tournament.getName()+" - "+matchStart
+    				   MatchDetails match=	new MatchDetails(matchStart, name+ Constant.HYPHEN + Constant.ROUND + (i+1)+ Constant.HYPHEN+ Constant.MATCH+ matchStart
     							,startDate,endDate ,currentDate
-    							,tournamentPlayer.get(j),tournamentPlayer.get(size-1-j),null,null
+    							,tournamentPlayer.get(j),tournamentPlayer.get(size-1-j),null,null  
     							,matchType,gameType,tournament );
     				   tournamentMatches.add(match);
     				matchStart++;

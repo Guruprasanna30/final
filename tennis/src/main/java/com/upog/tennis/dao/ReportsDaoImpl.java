@@ -18,8 +18,8 @@ public class ReportsDaoImpl {
 	
 
 	
-	public List<List<Map<String,Object>>> getDynamicReport(String connectionName,String dynamicReportSQL) {		
-		return dynamicReportRepository.getDynamicReport(connectionName,dynamicReportSQL);
+	public List<List<Map<String,Object>>> getDynamicReport(String dynamicReportSQL) {		
+		return dynamicReportRepository.getDynamicReport(dynamicReportSQL);
 	}
 	
 

@@ -2,6 +2,7 @@ package com.upog.tennis.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -22,5 +23,14 @@ public class PlayerDaoImpl {
 		}
 	
 	
+	public Player findPlayerById(int playerId) {
+		return playerRepository.findById(playerId);
+	}
+	public List<Player> findPlayerByName(String  name) {
+		return playerRepository.findPlayerByName(name);
+	}
 	
+	public Player findPlayerByUserName(String  userName) {
+		return playerRepository.findByUserName(userName);
+	}
 }

@@ -1,5 +1,7 @@
 package com.upog.tennis.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +12,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "COURT")
-public class Court {
+public class Court implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id 
 	@Column(name = "COURT_ID")
 	int id;
@@ -19,8 +25,7 @@ public class Court {
 	String name;
 	@Column(name = "ACTIVE")
 	boolean isActive;
-	@Column(name = "COMMENTS")
-	String comments;
+
 	
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ADDRESS_ID", referencedColumnName = "ADDRESS_ID")
@@ -64,13 +69,7 @@ public class Court {
 		this.isActive = isActive;
 	}
 
-	public String getComments() {
-		return comments;
-	}
 
-	public void setComments(String comments) {
-		this.comments = comments;
-	}
 
 	public Address getAddress() {
 		return address;
@@ -106,7 +105,7 @@ public class Court {
 
 	@Override
 	public String toString() {
-		return "Court [id=" + id + ", name=" + name + ", isActive=" + isActive + ", comments=" + comments + ", address="
+		return "Court [id=" + id + ", name=" + name + ", isActive=" + isActive +  ", address="
 				+ address + ", courtType=" + courtType + ", accessType=" + accessType + ", courtRating=" + courtRating
 				+ "]";
 	}

@@ -1,5 +1,6 @@
 package com.upog.tennis.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -13,7 +14,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TOURNAMENT_PLAYER_DETAILS")
-public class TournamentPlayerDetails {
+public class TournamentPlayerDetails  implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id 
 	@Column(name = "TOURNAMENT_PLAYER_ID")
@@ -45,7 +51,7 @@ public class TournamentPlayerDetails {
     @JoinColumn(name = "TOURNAMENT_ID", referencedColumnName = "TOURNAMENT_ID")
     private Tournament tournament;
 	
-	public TournamentPlayerDetails() {}
+	public TournamentPlayerDetails()  {}
 
 	public int getId() {
 		return id;

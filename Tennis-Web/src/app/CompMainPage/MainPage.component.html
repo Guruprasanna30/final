@@ -1,13 +1,13 @@
 
 
-<div class="container">
-    <div class="row">
-      <div class="col-md-12">
-  
-           <viewReportSel *ngIf="appData.loadedFeature === constant.VIEW_REPORT"></viewReportSel>
-           <createReportSel *ngIf="appData.loadedFeature === constant.CREATE_REPORT " ></createReportSel>  
-           <dynamicReportSel *ngIf="appData.loadedFeature === constant.DYNAMIC_REPORT " ></dynamicReportSel>
+<div class="container" style = "height:90%"  >
+    
 
-      </div>  
-    </div>  
+        <HomePageSel *ngIf="appData.loadedFeature === constant.VIEW_HOME"></HomePageSel>
+           <MatchSel *ngIf="appData.loadedFeature === constant.VIEW_MATCH" ></MatchSel>  
+           <TournamentSel *ngIf="appData.loadedFeature === constant.VIEW_TOURNAMENT" ></TournamentSel>  
+           <dynamicReportSel *ngIf="appData.loadedFeature === constant.VIEW_DYNAMIC_REPORT" ></dynamicReportSel>
+
+
+   
   </div> 

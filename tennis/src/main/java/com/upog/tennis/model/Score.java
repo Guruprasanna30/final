@@ -1,5 +1,7 @@
 package com.upog.tennis.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,41 +12,45 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "SCORE")
-public class Score {
+public class Score implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id 
 	@Column(name = "SCORE_ID")
 	int id;
 	@Column(name = "WINNER_SET1_SCORE")
-	int winnerSet1Score;
+	Integer winnerSet1Score;
 	@Column(name = "RUNNER_SET1_SCORE")
-	int runnerSet1Score;
+	Integer runnerSet1Score;
 	@Column(name = "DURATION_SET1_MINS")
-	int durationSet1Mins;
+	Integer durationSet1Mins;
 	@Column(name = "WINNER_SET2_SCORE")
-	int winnerSet2Score;
+	Integer winnerSet2Score;
 	@Column(name = "RUNNER_SET2_SCORE")
-	int runnerSet2Score;
+	Integer runnerSet2Score;
 	@Column(name = "DURATION_SET2_MINS")
-	int durationSet2Mins;
+	Integer durationSet2Mins;
 	@Column(name = "WINNER_SET3_SCORE")
-	int winnerSet3Score;
+	Integer winnerSet3Score;
 	@Column(name = "RUNNER_SET3_SCORE")
-	int runnerSet3Score;
+	Integer runnerSet3Score;
 	@Column(name = "DURATION_SET3_MINS")
-	int durationSet3Mins;
+	Integer durationSet3Mins;
 	@Column(name = "WINNER_SET4_SCORE")
-	int winnerSet4Score;
+	Integer winnerSet4Score;
 	@Column(name = "RUNNER_SET4_SCORE")
-	int runnerSet4Score;
+	Integer runnerSet4Score;
 	@Column(name = "DURATION_SET4_MINS")
-	int durationSet4Mins;
+	Integer durationSet4Mins;
 	@Column(name = "WINNER_SET5_SCORE")
-	int winnerSet5Score;
+	Integer winnerSet5Score;
 	@Column(name = "RUNNER_SET5_SCORE")
-	int runnerSet5Score;
+	Integer runnerSet5Score;
 	@Column(name = "DURATION_SET5_MINS")
-	int durationSet5Mins;
+	Integer durationSet5Mins;
 	
 
 	@OneToOne(cascade = CascadeType.ALL)
@@ -65,123 +71,123 @@ public class Score {
 		this.id = id;
 	}
 
-	public int getWinnerSet1Score() {
+	public Integer getWinnerSet1Score() {
 		return winnerSet1Score;
 	}
 
-	public void setWinnerSet1Score(int winnerSet1Score) {
+	public void setWinnerSet1Score(Integer winnerSet1Score) {
 		this.winnerSet1Score = winnerSet1Score;
 	}
 
-	public int getRunnerSet1Score() {
+	public Integer getRunnerSet1Score() {
 		return runnerSet1Score;
 	}
 
-	public void setRunnerSet1Score(int runnerSet1Score) {
+	public void setRunnerSet1Score(Integer runnerSet1Score) {
 		this.runnerSet1Score = runnerSet1Score;
 	}
 
-	public int getDurationSet1Mins() {
+	public Integer getDurationSet1Mins() {
 		return durationSet1Mins;
 	}
 
-	public void setDurationSet1Mins(int durationSet1Mins) {
+	public void setDurationSet1Mins(Integer durationSet1Mins) {
 		this.durationSet1Mins = durationSet1Mins;
 	}
 
-	public int getWinnerSet2Score() {
+	public Integer getWinnerSet2Score() {
 		return winnerSet2Score;
 	}
 
-	public void setWinnerSet2Score(int winnerSet2Score) {
+	public void setWinnerSet2Score(Integer winnerSet2Score) {
 		this.winnerSet2Score = winnerSet2Score;
 	}
 
-	public int getRunnerSet2Score() {
+	public Integer getRunnerSet2Score() {
 		return runnerSet2Score;
 	}
 
-	public void setRunnerSet2Score(int runnerSet2Score) {
+	public void setRunnerSet2Score(Integer runnerSet2Score) {
 		this.runnerSet2Score = runnerSet2Score;
 	}
 
-	public int getDurationSet2Mins() {
+	public Integer getDurationSet2Mins() {
 		return durationSet2Mins;
 	}
 
-	public void setDurationSet2Mins(int durationSet2Mins) {
+	public void setDurationSet2Mins(Integer durationSet2Mins) {
 		this.durationSet2Mins = durationSet2Mins;
 	}
 
-	public int getWinnerSet3Score() {
+	public Integer getWinnerSet3Score() {
 		return winnerSet3Score;
 	}
 
-	public void setWinnerSet3Score(int winnerSet3Score) {
+	public void setWinnerSet3Score(Integer winnerSet3Score) {
 		this.winnerSet3Score = winnerSet3Score;
 	}
 
-	public int getRunnerSet3Score() {
+	public Integer getRunnerSet3Score() {
 		return runnerSet3Score;
 	}
 
-	public void setRunnerSet3Score(int runnerSet3Score) {
+	public void setRunnerSet3Score(Integer runnerSet3Score) {
 		this.runnerSet3Score = runnerSet3Score;
 	}
 
-	public int getDurationSet3Mins() {
+	public Integer getDurationSet3Mins() {
 		return durationSet3Mins;
 	}
 
-	public void setDurationSet3Mins(int durationSet3Mins) {
+	public void setDurationSet3Mins(Integer durationSet3Mins) {
 		this.durationSet3Mins = durationSet3Mins;
 	}
 
-	public int getWinnerSet4Score() {
+	public Integer getWinnerSet4Score() {
 		return winnerSet4Score;
 	}
 
-	public void setWinnerSet4Score(int winnerSet4Score) {
+	public void setWinnerSet4Score(Integer winnerSet4Score) {
 		this.winnerSet4Score = winnerSet4Score;
 	}
 
-	public int getRunnerSet4Score() {
+	public Integer getRunnerSet4Score() {
 		return runnerSet4Score;
 	}
 
-	public void setRunnerSet4Score(int runnerSet4Score) {
+	public void setRunnerSet4Score(Integer runnerSet4Score) {
 		this.runnerSet4Score = runnerSet4Score;
 	}
 
-	public int getDurationSet4Mins() {
+	public Integer getDurationSet4Mins() {
 		return durationSet4Mins;
 	}
 
-	public void setDurationSet4Mins(int durationSet4Mins) {
+	public void setDurationSet4Mins(Integer durationSet4Mins) {
 		this.durationSet4Mins = durationSet4Mins;
 	}
 
-	public int getWinnerSet5Score() {
+	public Integer getWinnerSet5Score() {
 		return winnerSet5Score;
 	}
 
-	public void setWinnerSet5Score(int winnerSet5Score) {
+	public void setWinnerSet5Score(Integer winnerSet5Score) {
 		this.winnerSet5Score = winnerSet5Score;
 	}
 
-	public int getRunnerSet5Score() {
+	public Integer getRunnerSet5Score() {
 		return runnerSet5Score;
 	}
 
-	public void setRunnerSet5Score(int runnerSet5Score) {
+	public void setRunnerSet5Score(Integer runnerSet5Score) {
 		this.runnerSet5Score = runnerSet5Score;
 	}
 
-	public int getDurationSet5Mins() {
+	public Integer getDurationSet5Mins() {
 		return durationSet5Mins;
 	}
 
-	public void setDurationSet5Mins(int durationSet5Mins) {
+	public void setDurationSet5Mins(Integer durationSet5Mins) {
 		this.durationSet5Mins = durationSet5Mins;
 	}
 

@@ -1,0 +1,20 @@
+Inside Home page 
+<ngb-carousel #carousel interval="5000" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)">
+        <ng-template ngbSlide *ngFor="let img of mediaImgList; index as i">
+          <div class="carousel-caption">
+            <h3>My slide {{i + 1}} title</h3>
+          </div>
+          <a href="{{img.imgLink}}" target="_blank" rel="nofollow noopener noreferrer">
+            <div class="picsum-img-wrapper">
+              <img [src]="img.imgLink" alt="My image {{i + 1}} description">
+            </div>
+          </a>
+        </ng-template>
+      </ngb-carousel>
+      
+      <hr>
+      
+  
+      <button type="button" (click)="togglePaused()" class="btn btn-outline-dark btn-sm">
+        {{paused ? 'Cycle' : 'Pause' }}
+      </button>

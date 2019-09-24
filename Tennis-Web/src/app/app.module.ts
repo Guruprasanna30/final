@@ -9,8 +9,8 @@ import { SidebarModule } from 'ng-sidebar';
 // Appl;cation Module
 import { AppComponent } from './app.component';
 import { headerComponenet } from './CompHeader/header.component';
-import { viewReportComponenet } from './CompViewReport/viewReport.component';
-import { createReportComponenet } from './CompCreateReport/createReport.component';
+
+
 import { dynamicReportComponenet } from './CompDynamicReport/dynamicReport.component';
 import { AppDataService } from './service/AppData.service';
 import { LoggingService } from './service/Logging.service'; 
@@ -20,27 +20,34 @@ import { AppData } from './model/AppData.model';
 
 // Add on Modules
 import { AgGridModule } from 'ag-grid-angular';  
-import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
-import { QueryBuilderModule } from "angular2-query-builder";
-import { sqlBuilderComponenet } from './CompSqlBuilder/sqlBuilder.component';
+import { NgbTypeaheadModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlertCompoenent } from './CompShared/CompAlert/alert.componenet';
 import { ReportNameFilter } from './pipe/ReportNameFilter.pipe';
 import { CustomSideBarComponenet } from './CompCustomSideBar/CustomSideBar.component';
 import { MainPageComponenet } from './CompMainPage/MainPage.component';
+import { MatchComponenet } from './CompMatch/Match.component';
+import { MatchListComponenet } from './CompMatch/CompMatchList/MatchList.component';
+import { MatchLatestComponenet } from './CompMatch/CompMatchLatest/MatchLatest.component';
+import { TournamentComponenet } from './CompTournament/Tournament.componenet';
+import { TournamentStandingComponenet } from './CompTournament/TournamentStanding/TournamentStanding.component';
+import { HomePageComponenet } from './CompHomePage/HomePage.component';
 
-
+ 
 @NgModule({ 
   declarations: [
     AppComponent
     ,headerComponenet
-    ,viewReportComponenet
-    ,createReportComponenet
     ,dynamicReportComponenet
-    ,sqlBuilderComponenet
     ,AlertCompoenent
     ,CustomSideBarComponenet
     ,ReportNameFilter
     ,MainPageComponenet
+    ,MatchComponenet
+    ,MatchListComponenet
+    ,MatchLatestComponenet
+    ,TournamentComponenet
+    ,TournamentStandingComponenet
+    ,HomePageComponenet
     
 
   ],
@@ -50,7 +57,7 @@ import { MainPageComponenet } from './CompMainPage/MainPage.component';
     HttpClientModule,
     FormsModule,
     NgbTypeaheadModule,
-    QueryBuilderModule,
+    NgbModule,
     SidebarModule,
     AgGridModule.withComponents([])
     

@@ -1,5 +1,7 @@
 package com.upog.tennis.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,7 +9,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "CONNECTION_DETAILS")
-public class Connection {
+public class Connection implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id 
 	@Column(name = "CONNECTION_ID")
 	int connectionId;

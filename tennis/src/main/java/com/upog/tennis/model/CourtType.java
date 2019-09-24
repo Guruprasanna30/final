@@ -1,5 +1,7 @@
 package com.upog.tennis.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,8 +9,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "COURT_TYPE")
-public class CourtType {
+public class CourtType implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id 
 	@Column(name = "COURT_TYPE_ID")
 	int id;

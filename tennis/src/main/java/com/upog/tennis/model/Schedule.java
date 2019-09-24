@@ -1,5 +1,6 @@
 package com.upog.tennis.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -12,7 +13,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "SCHEDULE")
-public class Schedule {
+public class Schedule implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id 
 	@Column(name = "SCHEDULE_ID")

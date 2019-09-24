@@ -19,5 +19,15 @@ public interface PlayerRepository extends JpaRepository<Player, Integer>{
 			"    INNER JOIN  TOURNAMENT_PLAYER_DETAILS TP ON P.PLAYER_ID=TP.PLAYER_ID\n" + 
 			"    INNER JOIN TOURNAMENT T ON T.TOURNAMENT_ID=TP.TOURNAMENT_ID where T.TOURNAMENT_ID = :tournamentId ", nativeQuery=true)   
 	public ArrayList<Player> findPlayerbyTournament(@Param("tournamentId") int tournamentId );
+	
+	public Player findById(int Id);
+	
+	@Query(value=" select * from PLAYER\n" + 
+			"WHERE UPPER(USER_NAME) LIKE :name \n" + 
+			"OR UPPER(FIRST_NAME)LIKE :name \n" + 
+			"OR UPPER(LAST_NAME)LIKE :name ", nativeQuery=true) 
+	public List<Player> findPlayerByName(@Param("name") String name );
+	
+	public Player findByUserName(String firstName);
 
 }

@@ -1,5 +1,6 @@
 package com.upog.tennis.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -12,7 +13,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TOURNAMENT")
-public class Tournament {
+public class Tournament  implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 
 	@Id 
 	@Column(name = "TOURNAMENT_ID")
@@ -30,6 +37,9 @@ public class Tournament {
 	Integer prize3rd;
 	@Column(name = "ENTREE_FEE")
 	Integer entreeFee;
+	
+	@Column(name = "DIVISION")
+	Float division;
 	
 	@Column(name = "MATCH_INTERVAL_DAYS")
 	Integer matchInterval;
@@ -117,6 +127,16 @@ public class Tournament {
 
 	public void setEntreeFee(Integer entreeFee) {
 		this.entreeFee = entreeFee;
+	}
+
+
+	public Float getDivision() {
+		return division;
+	}
+
+
+	public void setDivision(Float division) {
+		this.division = division;
 	}
 
 

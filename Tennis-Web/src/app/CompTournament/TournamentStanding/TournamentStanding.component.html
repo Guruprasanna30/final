@@ -1,0 +1,31 @@
+
+
+
+
+
+ <alertSel [errorObj]="errorObj"
+ *ngIf="errorObj"
+ (close)="onHandleError()" >
+
+ </alertSel>  
+
+ 
+
+ <button  (click)="pinfields()"> <img src="../../../../assets/images/pin.jpg"/></button>
+ <button  (click)="sizeToFit()"> <img src="../../../../assets/images/resize.jpg"/></button>
+
+
+
+
+ <ag-grid-angular   #myGrid id="myGrid"
+
+ class="ag-theme-fresh"  
+ [rowData]="rowData" 
+ [columnDefs]="columnDefs" 
+ rowSelection="multiple"
+ pagination= true     
+ paginationPageSize=100
+ domLayout="autoHeight"
+ [defaultColDef]="defaultColDef"
+ (gridReady)="onGridReady($event)"
+ ></ag-grid-angular> 
