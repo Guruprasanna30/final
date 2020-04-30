@@ -27,7 +27,7 @@
     "bootstrap": "^4.0.0",
     "core-js": "^2.5.7",
     "es6-shim": "^0.35.4",
-    "jquery": "^3.0.0",
+    "jquery": "^3.5.0",
     "ng-sidebar": "^9.0.0",
     "popper.js": "^1.12.3",
     "reflect-metadata": "^0.1.12",
